@@ -1,10 +1,11 @@
 import React from 'react';
 import PageLayout from '../../components/PageLayout';
+import Card from '../../components/Card';
 
 const Main = () => {
     return (
         <PageLayout>
-            <p>Main Page</p>
+            <Card/>
         </PageLayout>
     );
 };

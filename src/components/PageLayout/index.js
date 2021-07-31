@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box, CssBaseline, Container  } from '@material-ui/core';
+import {CssBaseline, Container, Grid} from '@material-ui/core';
 import Footer from '../Footer';
 import Header from '../Header';
 import {useStyles} from './styles';
@@ -14,12 +14,17 @@ const PageLayout = ({children}) => {
             maxWidth = 'lg'>
             <Header/>
             <CssBaseline />
-            <Box
-                className = { classes.pageLayoutBox }>
+            <Grid
+                container
+                alignItems = 'center'
+                className = { classes.pageLayoutBox }
+                component = 'main'
+                justify = 'center'
+                spacing = { 4 }>
 
-                <main className = { classes.toolbar }>{children}</main>
+                {children}
 
-            </Box>
+            </Grid>
             <Footer/>
         </Container>
     );

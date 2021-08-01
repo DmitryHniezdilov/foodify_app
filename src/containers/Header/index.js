@@ -16,6 +16,7 @@ const Header = ({isModal}) => {
 
     return (
         <Box
+            className = { classes.header }
             component = 'header'>
             <Box component = 'nav'>
                 <Grid
@@ -28,6 +29,7 @@ const Header = ({isModal}) => {
                         component = { ListItem }
                         xs = { 6 }>
                         <Button
+                            color = 'primary'
                             component = { RouterLink }
                             size = 'small'
                             to = '/'>
@@ -37,19 +39,23 @@ const Header = ({isModal}) => {
                     <Grid
                         item
                         component = { ListItem }
-                        xs = { 2 }>
+                        md = { 3 }
+                        xs = { 6 }>
                         <Button
+                            color = 'primary'
                             component = { RouterLink }
                             size = 'small'
                             to = '/favourites'>
                             Favourites
                         </Button>
                     </Grid>
-                    <Grid
-                        item
-                        component = { ListItem }
-                        xs = { 4 }>
-                        { isModal && (
+                    { isModal && (
+                        <Grid
+                            item
+                            className = { classes.headerItemModal }
+                            component = { ListItem }
+                            md = { 3 }
+                            xs = { 12 }>
                             <Button
                                 color = 'primary'
                                 size = 'small'
@@ -57,8 +63,8 @@ const Header = ({isModal}) => {
                                 onClick = { handleOpen }>
                                 Add custom dish
                             </Button>
-                        )}
-                    </Grid>
+                        </Grid>
+                    )}
                 </Grid>
             </Box>
         </Box>

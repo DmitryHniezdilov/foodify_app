@@ -51,7 +51,7 @@ Card.propTypes = {
     imageUrl:     PropTypes.string,
     dishName:     PropTypes.string,
     instructions: PropTypes.string,
-    id:           PropTypes.number,
+    id:           PropTypes.string,
 };
 
 export default Card;

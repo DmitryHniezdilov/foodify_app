@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {CssBaseline, Container, Box} from '@material-ui/core';
+import {Container, Box} from '@material-ui/core';
 import Footer from '../Footer';
 import Header from '../../containers/Header';
 import {useStyles} from './styles';
@@ -13,10 +13,10 @@ const PageLayout = ({children, isModal}) => {
             className = { classes.pageLayout }
             maxWidth = 'lg'>
             <Header isModal = { isModal }/>
-            <CssBaseline />
             <Box
                 className = { classes.pageLayoutBox }
-                component = 'main'>
+                component = 'main'
+                my = { 2 }>
 
                 {children}
 

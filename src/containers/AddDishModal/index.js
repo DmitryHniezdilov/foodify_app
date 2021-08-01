@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
 import {Modal, Backdrop, Fade, Typography, Box, TextField, Button, Paper} from '@material-ui/core';
 import * as action from '../../redux/actions/general';
+import {localStorageHelper} from '../../utils';
 import {useStyles} from './styles';
 
 const AddDishModal = () => {
@@ -17,11 +18,12 @@ const AddDishModal = () => {
 
     const onSubmit = ({title, text}) => {
         const customDish = {
-            idMeal:          Date.now(),
+            idMeal:          String(Date.now()),
             strMeal:         title,
             strInstructions: text,
         };
         dispatch(action.setCustomDish([ ...recipeFavourList, customDish ]));
+        localStorageHelper.store([ ...recipeFavourList, customDish ]);
         handleClose();
     };
 
@@ -39,13 +41,11 @@ const AddDishModal = () => {
                 <Paper className = { classes.paper }>
                     <Typography
                         component = 'h1'
-                        id = 'transition-modal-title'
                         variant = 'h5'>
                         Add custom dish
                     </Typography>
                     <form
                         className = { classes.form }
-                        id = 'transition-modal-description'
                         onSubmit = { handleSubmit(onSubmit) }>
                         <Box mb = { 2 }>
                             <Controller

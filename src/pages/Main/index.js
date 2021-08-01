@@ -7,8 +7,8 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import PageLayout from '../../components/PageLayout';
 import Card from '../../components/Card';
 import * as action from '../../redux/actions/general';
-import {useStyles} from './styles';
 import {localStorageHelper} from '../../utils';
+import {useStyles} from './styles';
 
 const Main = () => {
     const classes = useStyles();

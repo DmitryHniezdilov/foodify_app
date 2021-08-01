@@ -5,6 +5,7 @@ import {
     Route,
 } from 'react-router-dom';
 import Main from './pages/Main';
+import Favourites from './pages/Favourites';
 import NotFound from './pages/NotFound';
 
 const Router = () => {
@@ -21,7 +22,7 @@ const Router = () => {
                     exact
                     key = 'chart'
                     path = '/favourites'>
-                    {/*<Favourites/>*/}
+                    <Favourites/>
                 </Route>
                 <Route path = '*'>
                     <NotFound/>

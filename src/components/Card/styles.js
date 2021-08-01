@@ -2,11 +2,22 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles({
     card: {
-        maxWidth: 395,
+        display:   'inline-block',
+        textAlign: 'left',
+        maxWidth:  500,
+        width:     '100%',
+        height:    '100%',
+    },
+    cardLink: {
+        height: '100%',
+    },
+    cardMediaBox: {
+        objectFit: 'cover',
+        height:    250,
     },
     cardMedia: {
-        height:     0,
-        paddingTop: '56.25%',
+        width:  '100%',
+        height: '100%',
     },
     cardInstructions: {
         display:   '-webkit-box',

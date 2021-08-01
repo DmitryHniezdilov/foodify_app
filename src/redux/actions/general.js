@@ -22,7 +22,13 @@ export const deleteThumbFromRecipe = (recipe) => {
 };
 
 export const setFavourList = (favourList) => {
-    console.log('favourList', favourList);
-
     return  { type: types.SET_FAVOUR_LIST, favourList };
 };
+
+export const setCustomDish = (favourList) => {
+    return  { type: types.SET_CUSTOM_DISH_TO_FAVOUR_LIST, favourList };
+};
+
+export const setOpenModal = () => ({ type: types.OPEN_MODAL });
+
+export const setClosedModal = () => ({ type: types.CLOSED_MODAL });

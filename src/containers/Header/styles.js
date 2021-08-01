@@ -6,5 +6,8 @@ export const useStyles = makeStyles({
         '& :first-child': {
             justifyContent: 'flex-end',
         },
+        '& :last-child': {
+            justifyContent: 'flex-end',
+        },
     },
 });

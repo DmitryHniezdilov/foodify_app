@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
-import Loading from './components/Loading';
 import Router from './Router';
+import Loading from './components/Loading';
+import AddDishModal from './containers/AddDishModal';
 import * as action from './redux/actions/general';
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
 
     return (
         <>
+            <AddDishModal/>
             <Loading/>
             <Router/>
         </>

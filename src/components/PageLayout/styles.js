@@ -5,11 +5,12 @@ export const useStyles = makeStyles({
         backgroundColor: 'inherit',
         display:         'flex',
         flexDirection:   'column',
+        position:        'relative',
         minHeight:       '100vh',
     },
     pageLayoutBox: {
-        flexGrow:   '1',
-        paddingTop: '24px',
+        flexGrow:  '1',
+        textAlign: 'center',
     },
     footer: {
         flexShrink: '0',

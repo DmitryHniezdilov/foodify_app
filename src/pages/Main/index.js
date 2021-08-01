@@ -14,14 +14,14 @@ const Main = () => {
     const dispatch = useDispatch();
     const { recipe } = useSelector((state) => state.general);
     const { strMeal, strMealThumb, strInstructions } = recipe;
-    // const normalizeInstructions -- cut strInstructions
     const [ favour, setFavour ] = useState(false);
 
     const skipAction = () => dispatch(action.setRecipe());
 
     const likeAction = () => {
         setFavour(!favour);
-        // dispatch(action.setRecipe());
+
+        // dispatch(action.deleteThumbFromRecipe(recipe)); // test placeholder - uncomment for view on click to Like button
     };
 
     return (

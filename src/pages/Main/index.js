@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, CardActions, Grid} from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
@@ -8,21 +8,35 @@ import PageLayout from '../../components/PageLayout';
 import Card from '../../components/Card';
 import * as action from '../../redux/actions/general';
 import {useStyles} from './styles';
+import {localStorageHelper} from '../../utils';
 
 const Main = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const { recipe } = useSelector((state) => state.general);
+    const { recipe, recipeFavourList } = useSelector((state) => state.general);
     const { strMeal, strMealThumb, strInstructions } = recipe;
     const [ favour, setFavour ] = useState(false);
 
-    const skipAction = () => dispatch(action.setRecipe());
+    const skipAction = () => {
+        dispatch(action.setRecipe());
+        if (favour) {
+            setFavour(false);
+        }
+    };
+
+    const addToRecipeFavourList = () => [ ...recipeFavourList, recipe ];
+    const delFromRecipeFavourList = () => [ ...recipeFavourList.slice(0, recipeFavourList.length - 1) ];
 
     const likeAction = () => {
+        dispatch(action.setFavourList(favour ? delFromRecipeFavourList() : addToRecipeFavourList()));
         setFavour(!favour);
 
         // dispatch(action.deleteThumbFromRecipe(recipe)); // test placeholder - uncomment for view on click to Like button
     };
+
+    useEffect(() => {
+        localStorageHelper.store(recipeFavourList);
+    }, [ recipeFavourList ]);
 
     return (
         <PageLayout>

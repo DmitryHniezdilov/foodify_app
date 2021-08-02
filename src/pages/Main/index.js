@@ -7,41 +7,39 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import PageLayout from '../../components/PageLayout';
 import Card from '../../components/Card';
 import * as action from '../../redux/actions/general';
-import {localStorageHelper} from '../../utils';
 import {useStyles} from './styles';
 
 const Main = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const { recipe, recipeFavourList } = useSelector((state) => state.general);
-    const { strMeal, strMealThumb, strInstructions } = recipe;
-    const [ favour, setFavour ] = useState(false);
+    const { idMeal, strMeal, strMealThumb, strInstructions } = recipe;
+    const [ isFavour, setFavour ] = useState(false);
 
     const skipAction = () => {
         dispatch(action.setRecipe());
-        if (favour) {
+        if (isFavour) {
             setFavour(false);
         }
     };
 
-    const addToRecipeFavourList = () => [ ...recipeFavourList, recipe ];
-    const delFromRecipeFavourList = () => [ ...recipeFavourList.slice(0, recipeFavourList.length - 1) ];
-
     const likeAction = () => {
-        dispatch(action.setFavourList(favour ? delFromRecipeFavourList() : addToRecipeFavourList()));
-        setFavour(!favour);
-
-        // dispatch(action.deleteThumbFromRecipe(recipe)); // test placeholder - uncomment for view on click to Like button
+        const delFromRecipeFavourList = recipeFavourList.filter((item) => item.idMeal !== idMeal);
+        dispatch(action.setFavourList(isFavour ? delFromRecipeFavourList : [ ...recipeFavourList, recipe ]));
+        setFavour(!isFavour);
     };
 
     useEffect(() => {
-        localStorageHelper.store(recipeFavourList);
-    }, [ recipeFavourList ]);
+        //if random recipe are in favourList then isFavour is true
+        const findItem = recipeFavourList.find((item) => item.idMeal === idMeal);
+        findItem && setFavour(true);
+    }, []);
 
     return (
         <PageLayout>
             <Card
                 dishName = { strMeal }
+                id = { idMeal }
                 imageUrl = { strMealThumb }
                 instructions = { strInstructions }>
                 <CardActions className = { classes.cardActions }>
@@ -53,8 +51,8 @@ const Main = () => {
                         Skip
                     </Button>
                     <Button
-                        color = { favour ? 'secondary' : 'primary' }
-                        endIcon = { favour ? <FavoriteIcon/> : <FavoriteBorderIcon/> }
+                        color = { isFavour ? 'secondary' : 'primary' }
+                        endIcon = { isFavour ? <FavoriteIcon/> : <FavoriteBorderIcon/> }
                         size = 'small'
                         onClick = { likeAction }>
                         Like

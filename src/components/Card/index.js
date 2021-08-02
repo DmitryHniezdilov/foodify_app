@@ -14,7 +14,7 @@ const Card = (props) => {
             <CardActionArea
                 className = { classes.cardLink }
                 component = { RouterLink }
-                to = { `/${id}` }>
+                to = { `/details/${id}` }>
                 <Box
                     className = { classes.cardMediaBox }>
                     <CardMedia

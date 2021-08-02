@@ -39,12 +39,6 @@ export default (state = initialState, action) => {
                 recipe: action.recipe,
             };
 
-        case types.SET_PLACEHOLDER: // for test placeholder - uncomment str in Main.js
-            return {
-                ...state,
-                recipe: action.recipe,
-            };
-
         case types.SET_FAVOUR_LIST:
             return {
                 ...state,

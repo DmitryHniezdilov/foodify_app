@@ -11,6 +11,9 @@ export const useStyles = makeStyles((theme) => ({
         },
     },
     headerItemModal: {
-        justifyContent: 'flex-end',
+        justifyContent:                 'flex-end',
+        [ '@media (max-width:959px)' ]: {
+            justifyContent: 'center',
+        },
     },
 }));

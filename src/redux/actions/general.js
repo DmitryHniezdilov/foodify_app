@@ -13,14 +13,6 @@ export const setRecipe = () => async (dispatch) => {
     dispatch({type: types.FINISH_LOADING});
 };
 
-// for test placeholder - uncomment str in Main.js
-export const deleteThumbFromRecipe = (recipe) => {
-    const newReciepe = recipe;
-    newReciepe.strMealThumb = '';
-
-    return { type: types.SET_PLACEHOLDER, recipe: newReciepe };
-};
-
 export const setFavourList = (favourList) => {
     return  { type: types.SET_FAVOUR_LIST, favourList };
 };

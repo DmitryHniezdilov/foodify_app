@@ -7,6 +7,7 @@ import {
 import Main from './pages/Main';
 import Favourites from './pages/Favourites';
 import NotFound from './pages/NotFound';
+import Details from './pages/Details';
 
 const Router = () => {
     return (
@@ -23,6 +24,12 @@ const Router = () => {
                     key = 'chart'
                     path = '/favourites'>
                     <Favourites/>
+                </Route>
+                <Route
+                    exact
+                    key = 'chart'
+                    path = '/details/:id'>
+                    <Details/>
                 </Route>
                 <Route path = '*'>
                     <NotFound/>

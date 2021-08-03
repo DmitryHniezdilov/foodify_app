@@ -1,4 +1,4 @@
-# Foodify Application
+# Foodify Application 
 
 Application allow the user to get a random recipe
 and give him / her an ability to save it in the favorite dishes list. [Foodify Application Link](https://dmitryhniezdilov.github.io/foodify_app/).

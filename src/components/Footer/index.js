@@ -20,7 +20,7 @@ const Footer = () => {
             <IconButton
                 className = { classes.icon }
                 component = { Link }
-                href = 'https://github.com/DmitryHniezdilov/'
+                href = 'https://github.com/DmitryHniezdilov/foodify_app'
                 rel = 'noreferrer'
                 size = 'small'
                 target = '_blank'>

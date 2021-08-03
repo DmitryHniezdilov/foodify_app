@@ -1,8 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import Router from './Router';
-import Loading from './components/Loading';
-import AddDishModal from './containers/AddDishModal';
+import Loading from './containers/Loading';
 import {localStorageHelper} from './utils';
 import * as action from './redux/actions/general';
 
@@ -20,7 +19,6 @@ const App = () => {
 
     return (
         <>
-            <AddDishModal/>
             <Loading/>
             <Router/>
         </>

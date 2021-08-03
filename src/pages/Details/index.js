@@ -2,10 +2,10 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouteMatch, useHistory } from 'react-router-dom';
 import { CardActions, Button} from '@material-ui/core';
-import PageLayout from '../../components/PageLayout';
-import CardDetails from '../../components/CardDetails';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import PageLayout from '../../components/PageLayout';
+import CardDetails from '../../components/CardDetails';
 import * as action from '../../redux/actions/general';
 import {useStyles} from './styles';
 

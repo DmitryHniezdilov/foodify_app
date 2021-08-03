@@ -11,7 +11,7 @@ import Details from './pages/Details';
 
 const Router = () => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename = '/foodify_app'>
             <Switch>
                 <Route
                     exact

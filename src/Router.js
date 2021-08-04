@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    BrowserRouter,
+    HashRouter,
     Switch,
     Route,
 } from 'react-router-dom';
@@ -11,7 +11,8 @@ import Details from './pages/Details';
 
 const Router = () => {
     return (
-        <BrowserRouter basename = '/foodify_app'>
+
+        <HashRouter>
             <Switch>
                 <Route
                     exact
@@ -35,7 +36,7 @@ const Router = () => {
                     <NotFound/>
                 </Route>
             </Switch>
-        </BrowserRouter>
+        </HashRouter>
     );
 };
 

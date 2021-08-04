@@ -6,7 +6,7 @@ import {useStyles} from './styles';
 const CardDetails = (props) => {
     const {imageUrl, dishName, instructions, children} = props;
     const classes = useStyles();
-    const image = imageUrl || '../foodify_details_placeholder.svg';
+    const image = imageUrl || '../foodify_app/foodify_details_placeholder.svg';
 
     return (
         <CardMUI className = { classes.cardDetails }>
